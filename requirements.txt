@@ -1,0 +1,7 @@
+# Основные зависимости
+openai-whisper>=20231117
+numpy>=1.24.0
+
+# Дополнительные зависимости
+ffmpeg-python>=0.2.0
+setuptools-rust
