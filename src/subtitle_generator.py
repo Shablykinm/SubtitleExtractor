@@ -18,20 +18,22 @@ class SubtitleGenerator:
         Форматирование временной метки в формат SRT
         
         Args:
-            seconds: время в секундах
+            seconds: время в секундах (float)
             
         Returns:
             str: отформатированное время (HH:MM:SS,mmm)
         """
-        td = timedelta(seconds=seconds)
-        total_seconds = int(td.total_seconds())
+        # Исправлено: правильно обрабатываем миллисекунды
+        hours = int(seconds // 3600)
+        minutes = int((seconds % 3600) // 60)
+        seconds_remainder = seconds % 60
+        whole_seconds = int(seconds_remainder)
+        milliseconds = int(round((seconds_remainder - whole_seconds) * 1000))
         
-        hours = total_seconds // 3600
-        minutes = (total_seconds % 3600) // 60
-        seconds = total_seconds % 60
-        milliseconds = int((seconds - int(seconds)) * 1000)
+        # Гарантируем, что миллисекунды в диапазоне 0-999
+        milliseconds = min(999, max(0, milliseconds))
         
-        return f"{hours:02d}:{minutes:02d}:{seconds:02d},{milliseconds:03d}"
+        return f"{hours:02d}:{minutes:02d}:{whole_seconds:02d},{milliseconds:03d}"
     
     def generate_srt(self, segments, output_path):
         """
