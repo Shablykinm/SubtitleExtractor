@@ -31,6 +31,9 @@ python main.py -h
 
 
 ## В случае проблем со скачиванием моделей
+```
+Убедитесь, что в папке проекта есть директория models
+```
 # Выполнить в терминале перед запуском
 set WHISPER_MODEL_URL=https://openaipublic.azureedge.net/main/whisper/models
 
