@@ -1,4 +1,4 @@
-# Audio to Subtitles Converter
+# Subtitles Converter
 
 Конвертер аудио в оригинальные субтитры с использованием Whisper от OpenAI.
 
@@ -22,17 +22,17 @@ pip install -r requirements.txt
 ```
 python main.py audio.mp3
 ```
-# С указанием модели
+## С указанием модели
 ```
 python main.py audio.mp3 -m tiny
 ```
 
-# С указанием выходного файла
+## С указанием выходного файла
 ```
 python main.py audio.wav -o my_subtitles
 ```
 
-# Справка
+## Справка
 ```
 python main.py -h
 ```
@@ -42,7 +42,7 @@ python main.py -h
 ```
 Убедитесь, что в папке проекта есть директория models
 ```
-# Выполнить в терминале перед запуском
+## Выполнить в терминале перед запуском
 ```
 set WHISPER_MODEL_URL=https://openaipublic.azureedge.net/main/whisper/models
 ```
